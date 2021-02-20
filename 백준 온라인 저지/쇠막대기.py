@@ -10,4 +10,3 @@ for s in string:
     else:
         stack -= 1
 print(cnt)
-        
