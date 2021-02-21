@@ -13,19 +13,13 @@ def TF(ex_list, N):
             # print('i:', i, 'j:', j)
     
     # 대각선 부분
-    if N == 5:
-        if ex_list[0][0]=='o' and ex_list[1][1]=='o' and ex_list[2][2]=='o' and ex_list[3][3]=='o' and ex_list[4][4]=='o':
-            return True
-        if ex_list[0][4]=='o' and ex_list[1][3]=='o' and ex_list[2][2]=='o' and ex_list[3][1]=='o' and ex_list[4][0]=='o':
-            return True
-    else:
-        for i in range(N-4):
-            for j in range(N-4):
+    for i in range(N-4):
+        for j in range(N-4):
                 # print(i,j)
-                if ex_list[i][j]=='o' and ex_list[i+1][j+1]=='o' and ex_list[i+2][j+2]=='o' and ex_list[i+3][j+3]=='o' and ex_list[i+4][j+4]=='o':
-                    return True
-                if ex_list[i][N-j-1]=='o' and ex_list[i+1][N-j-2]=='o' and ex_list[i+2][N-j-3]=='o' and ex_list[i+3][N-j-4]=='o' and ex_list[i+4][N-j-5]=='o':
-                    return True 
+            if ex_list[i][j]=='o' and ex_list[i+1][j+1]=='o' and ex_list[i+2][j+2]=='o' and ex_list[i+3][j+3]=='o' and ex_list[i+4][j+4]=='o':
+                return True
+            if ex_list[i][N-j-1]=='o' and ex_list[i+1][N-j-2]=='o' and ex_list[i+2][N-j-3]=='o' and ex_list[i+3][N-j-4]=='o' and ex_list[i+4][N-j-5]=='o':
+                return True 
 
     return False
 
