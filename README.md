@@ -28,5 +28,5 @@
 
 ----
 
-##### ✅ If you want to another my project,  Back to the my repository  
+##### ✅ If you want to another my project,  Back to the my profile  
 
