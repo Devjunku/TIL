@@ -1,3 +1,5 @@
+# 인접리스트로 푼 풀이 연습장
+# https://underflow101.tistory.com/10 참고
 from sys import stdin
 
 n, m, v = map(int, stdin.readline().rstrip().split())
