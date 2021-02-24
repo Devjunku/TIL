@@ -10,8 +10,9 @@ max_num = []
 for i in range(3):
     total = 0
     for j in range(len(arr)):
-        de1 = arr[j].pop(ban[i][0])
-        de2 = arr[j].pop(ban[i][1]-1)
+        arr[j]
+
+
         total += max(arr[j])
     max_num.append(total)
 print(max(max_num))
