@@ -1,3 +1,4 @@
+from pandas import DataFrame
 from sys import stdin
 
 C, R = map(int, stdin.readline().rstrip().split())
@@ -21,7 +22,7 @@ while True:
         i += 1
 
     if i == K:
-        print(c+1,r+1)
+        print(r+1,c+1)
         break 
 
     R -= 1
@@ -38,6 +39,6 @@ while True:
         i += 1
 
     if i == K:
-        print(c+1,r+1)
+        print(r+1,c+1)
         break    
     direction = -direction
