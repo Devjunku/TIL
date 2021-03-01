@@ -45,6 +45,6 @@ while t:
     elif dy== -1:
         c_y= q
  
+print(p, q)
 
-
-출처: https://tkql.tistory.com/66 [싸비]
+# 출처: https://tkql.tistory.com/66 [싸비]
