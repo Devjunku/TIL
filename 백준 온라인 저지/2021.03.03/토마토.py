@@ -6,7 +6,7 @@ def start(farm):
     for i in range(m):
         for j in range(n):
             if farm[i][j] == 1:
-                se.append([i, j])
+                se.append((i, j))
     return se
 
 def safe(x, y):
@@ -18,10 +18,10 @@ def safe(x, y):
         else:
             return True
 
-def BFS(x, y):
+def BFS(se):
     global farm
     queue = deque()
-    queue.append((x,y))
+    queue.extend(se)
     while queue:
         x, y = queue.popleft()
         for i in range(4):
@@ -52,8 +52,7 @@ dy = [1, -1, 0, 0]
 n, m = map(int, stdin.readline().rstrip().split())
 farm = [list(map(int, stdin.readline().rstrip().split())) for _ in range(m)]
 se_list = start(farm)
-for ee in se_list:
-    BFS(ee[0], ee[1])
+BFS(se_list)
 print(solution(farm))
 
 
