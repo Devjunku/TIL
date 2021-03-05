@@ -56,6 +56,4 @@ BFS(se_list)
 print(solution(farm))
 
 
-# 이렇게 짜니까 시간초과나지...
-
 
