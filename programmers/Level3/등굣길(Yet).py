@@ -28,6 +28,7 @@ def BFS(y, x):
     return cnt
 
 def solution(m, n , puddles):
+    
     dy = [1, 0]
     dx = [0, 1]
     
