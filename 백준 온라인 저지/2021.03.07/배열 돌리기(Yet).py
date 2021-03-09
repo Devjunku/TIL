@@ -14,8 +14,8 @@ left = [1, 0]
 
 
 
-def rcsfunc(arr, rcs):
-    rcs[][0]-rcs[][2]
-    rcs[][1]-rcs[][2]
+# def rcsfunc(arr, rcs):
+#     rcs[][0]-rcs[][2]
+#     rcs[][1]-rcs[][2]
 
-    pass
+#     pass
