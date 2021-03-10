@@ -27,7 +27,7 @@ def solution(arr, d_x, d_y, x, y, color):
                 exchange.append([x+margin_x, y+margin_y])
             margin_x += d_x[i]
             margin_y += d_y[i]
-    a[x][y] = color
+    a[x][y] = color # 들어오는 부분 색을 바꿔주는 역할임
     return arr
 
 T = int(input())
@@ -38,12 +38,13 @@ for t in range(1, T+1):
 
     half = N // 2
     arr[half-1][half-1] = 2
-    arr[][] = 2
+    arr[half][half] = 2
     arr[half-1][half] = 1
     arr[half][half-1] = 1
 
     for _ in range(M):
         x, y, color = map(int, input().split())
+        arr[x-1][y-1] = color
         arr = solution(arr, d_x, d_y, x-1, y-1, color)
     
     w = 0
