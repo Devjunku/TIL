@@ -6,11 +6,11 @@ def dfs():
     global arr1, visited, cnt, dx, dy
     for i in range(N):
         for j in range(N):
-            if arr1[i][j] != 0 and visited[i][j] == 0:
+            if visited[i][j] == 1:
+                visited[i][j] = 0
                 cnt += 1
                 stack = []
                 stack.append((i, j))
-                visited[i][j] = 1
                 while stack:
                     # print(stack)
                     x, y = stack.pop()
@@ -18,13 +18,13 @@ def dfs():
                         nx, ny = x + dx[k], y + dy[k]
                         if not safe(nx, ny):
                             continue
-                        if visited[nx][ny] == 0:
+                        if visited[nx][ny] == 1:
                             stack.append((nx, ny))
-                            visited[nx][ny] = 1
+                            visited[nx][ny] = 0
 
 def safe(x, y):
     global arr1
-    if 0 <= x < N and 0 <= y < N and arr1[x][y] != 0:
+    if 0 <= x < N and 0 <= y < N:
         return True
     return False
 
@@ -48,8 +48,10 @@ for i in range(min_v, max_v+1):
         for k in range(N):
             if arr[j][k] <= i:
                 arr1[j][k] = 0
+                visited[j][k] = 0
             else:
                 arr1[j][k] = arr[j][k]
+                visited[j][k] = 1
     # print(arr1)
     cnt = 0
     dfs()

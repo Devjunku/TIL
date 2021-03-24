@@ -76,6 +76,17 @@ def solution(arr):
             break
     print(zero_list, one_list)
         
+zzz
+ㅎㅇㅎㅇㅎㅇㅎㅇ
+아이거
+원격
+오
+쩐다
+ㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+><><><><
+
+
+꿀잼~~~~~~~~~~~ㅋㅋㅋ
 
         
          
