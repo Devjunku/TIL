@@ -8,40 +8,19 @@ dx = [2, 2, 1, 1, -1, -1, -2, -2]
 dy = [1, -1, 2, -2, -2, 2, -1, 1]
 
 
-# 안전 좌표 확인
-def safe(x, y, I):
-    if 0 <= x < I and 0 <= y < I:
-        return True
-    return False
-
-# bfs
-def bfs(sx, sy):
-    global dx, dy, I, arr, ex, ey, queue, go, cnt
-
+def bfs(sx, sy, ex, ey):
+    global arr
+    queue = deque()
     queue.append((sx, sy))
-    nx, ny = queue[0]
-    arr[nx][ny] = 1
-    
-    if nx == ex and ny == ey: # 시작점과 끝점이 갖다면 바로 리턴
-        return 1
-
     while queue:
         x, y = queue.popleft()
-        stack = deque((x, y))
-        while stack:
-            x, y = stack.popleft()
-            for i in range(8):
-                nx, ny = x + dx[i], y + dy[i]
-                if not safe(nx, ny, I) or arr[nx][ny] == 1:
-                    continue
-                arr[nx][ny] = 1
-                stack.append((nx, ny))
-        queue.append(stack)
-        
-
-        print(DataFrame(arr))
-
-
+        if x == ex and y == ey:
+            return arr[ex][ey]-1
+        for i in range(8):
+            nx, ny = x + dx[i], y + dy[i]
+            if 0 <= nx < I and 0 <= ny < I and arr[nx][ny] == 0:
+                queue.append((nx, ny))
+                arr[nx][ny] = arr[x][y] + 1
 
 for t in range(1, T+1):
     I = int(input())
@@ -49,12 +28,8 @@ for t in range(1, T+1):
     sx, sy = map(int, input().split())
     ex, ey = map(int, input().split())
     arr[sx][sy] = 1 # 시작점
-    arr[ex][ey] = 1 # 끝점
-    queue = deque() # 큐 할당
-    cnt = 0 # 이동 칸 세기
-    go = 0 #
-    # print(DataFrame(arr))
-    bfs(sx, sy)
+    print(bfs(sx, sy, ex, ey))
+
 
 
 
