@@ -28,6 +28,7 @@ for i in range(E):
     
     pa[n2] = n1
 
+print(pa)
 print(left)
 print(right)
 
