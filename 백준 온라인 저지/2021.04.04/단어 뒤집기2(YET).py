@@ -1,49 +1,42 @@
-def circuit():
-    global i, string, res
-
-    word = ''
-    while string[i] != '>':
-        print(i)
-        word += string[i]
-        i += 1
-    
-    word += string[i]
-    res += word
-    return
-
-def back():
-    global i,string, res
-
-    word = ''
-    while i < len(string) or (string[i] != ' ' and string[i] != '<'):
-        print(i)
-        word += string[i]
-        i += 1
-
-    res += word[::-1]
-
-    try:
-        if string[i] == ' ':   
-            res += ' '
-    except:
-        return
-
-    return
-    
-
 string = input()
 
-i = 0
 res = ''
+i = 0
 while i < len(string):
     if string[i] == '<':
-        circuit()
+        res += '<'
         i += 1
-    if string[i] != '<':
-        back()
+        while string[i] != '>':
+            res += string[i]
+            i += 1
+    elif string[i] != '<' or  string[i] == ' ':
+        word = ''
+        while True:
+            word += string[i]
+            i += 1
+
+            if i == len(string):
+                res += word[::-1]
+                break
+
+            elif string[i] == ' ':
+                res += word[::-1]
+                break
+
+            elif string[i] == '<':
+                res += word[::-1]
+                break
+    if i == len(string):
+        break
+    if string[i] == '>':
+        res += '>'
+        i += 1
+    elif string[i] == ' ':
+        res += ' '
         i += 1
 
 print(res)
+
 
 
 
