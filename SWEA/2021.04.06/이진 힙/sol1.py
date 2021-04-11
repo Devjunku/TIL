@@ -2,8 +2,6 @@ import sys
 
 sys.stdin = open('sample_input.txt')
 
-
-
 def tree_sort(n):
     global tree
     if n >= 2:
@@ -22,6 +20,7 @@ for t in range(1, T+1):
     for i in node_info:
         tree.append(i)
         tree_sort(len(tree)-1)
+    print(tree)
 
     res = 0
     i = len(tree)-1
