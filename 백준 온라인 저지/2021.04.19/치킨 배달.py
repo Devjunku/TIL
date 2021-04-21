@@ -1,7 +1,6 @@
 N, M = map(int, input().split())
 
 chic_map = [list(map(int, input().split())) for _ in range(N)]
-
 house = []
 chicken = []
 
