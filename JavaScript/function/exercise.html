@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function isValid1 (word) {
+      if (word.length >= 8) {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    function isValid2 (word) {
+      return word.length >= 8
+    }
+
+    console.log(isValid1('password'))
+    console.log(isValid2('password'))
+
+
+    const myJoin = function (array, seperator) {
+      let result = ''
+
+      for (let idx = 0; idx < array.length; idx++) {
+        const word = array[idx]
+        result += word
+        if (idx < array.length - 1) {
+          result += seperator
+        }
+      }
+      return result
+    }
+
+    console.log(myJoin(['010', '1234', '5678'], '-'))
+
+
+    const makeOrder = function(menu, size = 'regular') {
+      return { menu: menu, size: size}
+    }
+
+    console.log(makeOrder('mocha'))
+
+
+    function celsiusToFahrenheit (celsius) {
+      return celsius * 9/5 + 32
+    }
+
+    const celsiusToFahrenheit = (celsius) => {
+      const fahrenheit = celsius * 9/5 +32
+      return fahrenheit
+    }
+
+    const celsiusToFahrenheit = celsius => celsius * 9/5 +32
+
+
+  </script>
+</body>
+</html>

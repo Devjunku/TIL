@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // const homeworks = ['david.zip', null, 'maria.zip', 'tom.zip', null]
+
+    // const result = []
+
+    // for (const homework of homeworks) {
+    //   // if 안에 null은 false임
+    //   if (homework) {
+    //     result.push(homework)
+    //   }
+    // }
+    
+    // console.log(result)
+
+    const arr1 = ['www', 'samsung', 'com']
+    const arr2 = ['galaxy', 'buds', 'pro']
+    const arr3 = ['sec', 'buds']
+
+    const homepage = arr1.join('.')
+    const product = arr2.join('-')
+
+    arr3.unshift(homepage)
+    arr3.push(product)
+    
+    const result = arr3.join('/')
+
+    console.log(result)
+
+    const weather = ['sunny', 'sunny', 'sunny', 'sunny', 'rainy', 'rainy']
+
+    while (weather.indexOf('rainy') > 0) {
+      weather[weather.indexOf('rainy')] = 'sunny'
+    }
+
+    console.log(weather)
+
+  </script>
+</body>
+</html>
