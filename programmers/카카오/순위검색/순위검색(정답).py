@@ -1,9 +1,4 @@
 # 정답 코드
-
-
-
-
-
 from itertools import combinations
 
 def solution(info, query):
@@ -48,8 +43,6 @@ def solution(info, query):
             answer.append(0)
 
     return answer
-
-
 
 
 if __name__ == '__main__':
