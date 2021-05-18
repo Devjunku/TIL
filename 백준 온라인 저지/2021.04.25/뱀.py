@@ -15,7 +15,7 @@ apple_loc = []
 for _ in range(K):
     r, c = map(int, input().split())
     arr[r-1][c-1] = -1 # 하.. 여기서 엄청 헤맴..
-                       # 왜 -1을 못봤지 ㅜㅜ
+                       # 왜 -1을 못봤지 ㅜㅜasda
 
 # 회전 수 받기
 L = int(input())
