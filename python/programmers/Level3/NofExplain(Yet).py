@@ -32,4 +32,4 @@ def solution(N, number):
 
 if __name__ == '__main__':
     print(solution(5, 12))
-    # print(solution(2, 11))
+    print(solution(2, 11))
