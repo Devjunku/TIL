@@ -15,6 +15,8 @@ def solution(relation):
         for i  in range(1, colSize+1):
             all.extend([set(k) for k in combinations([j for j in range(colSize)], i)])
         
+        print(all)
+
         # 모든 행 분간이 가능한 경우
         for comb in all:
             vaildSet = set()
