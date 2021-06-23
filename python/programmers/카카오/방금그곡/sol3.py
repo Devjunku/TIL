@@ -18,10 +18,8 @@ def solution(m, musicinfos):
         h1, m1 = s.split(':')
         h2, m2 = e.split(':')
         time = (int(h2) - int(h1)) * 60 + (int(m2) - int(m1))
-
         melody = trans_tune(melody)
-        melody = melody * (time // len(melody)) + melody[:time % len(melody)]
-
+        melody = melody * (time // len(melody)) + melody[0:time % len(melody)]
         music_dit[melody] = title
     
     for song in music_dit.keys():
@@ -33,7 +31,7 @@ def solution(m, musicinfos):
                     result = song
     
     if result == None:
-        return "None"
+        return "(None)"
     else:
         return music_dit[result]
 
