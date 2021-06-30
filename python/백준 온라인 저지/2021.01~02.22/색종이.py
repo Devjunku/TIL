@@ -1,4 +1,4 @@
-arr = [[0 for _ in range(101)] for _ in range(101)]
+arr = [[0 for _ in range(1001)] for _ in range(1001)]
 
 T = int(input())
 
