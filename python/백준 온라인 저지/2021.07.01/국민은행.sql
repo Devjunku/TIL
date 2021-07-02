@@ -8,7 +8,8 @@ ORDER BY u.USER_ID
 SELECT u.USER_ID as "회원 아이디(USER_ID)", COUNT(*) as "총 저축 횟수", SUM(t.MONEY) as "총 저축 금액 합계"
 FROM USERS u
 LEFT OUTER JOIN TRANSACTIONS t ON u.USER_ID = t.USER_ID
-WHERE (date_format(t.DATE_TIME, "20%y-%m-%d") >= "2020-09-01" and date_format(t.DATE_TIME, "20%y-%m-%d") <= "2020-09-07") 
+-- WHERE (date_format(t.DATE_TIME, "20%y-%m-%d") >= "2020-09-01" and date_format(t.DATE_TIME, "20%y-%m-%d") <= "2020-09-07") 
+WHERE (date_format(t.DATE_TIME, "20%y-%m-%d") BETWEEN "2020-09-01" and "2020-09-07") 
 GROUP BY u.USER_ID
 ORDER BY u.USER_ID
 
@@ -17,5 +18,22 @@ SELECT u.USER_ID as "회원 아이디(USER_ID)", COUNT(*) as "총 저축 횟수"
 FROM USERS u
 LEFT OUTER JOIN TRANSACTIONS t ON u.USER_ID = t.USER_ID
 WHERE (date_format(t.DATE_TIME, "20%y-%m-%d") >= "2020-09-01" and date_format(t.DATE_TIME, "20%y-%m-%d") <= "2020-09-07") 
+GROUP BY u.USER_ID
+ORDER BY u.USER_ID
+
+SELECT A.USER_ID, COUNT(B.MONEY), sum(IF(B.MONEY IS NULL, 0, B.MONEY))
+FROM USERS A LEFT JOIN
+(SELECT * FROM TRANSACTIONS 
+WHERE DATE_TIME 
+BETWEEN '2020-09-01 00:00:00' AND '2020-09-07 23:59:59') B ON A.USER_ID = B.USER_ID
+GROUP BY A.USER_ID
+ORDER BY A.USER_ID;
+
+
+SELECT u.USER_ID, COUNT(t.MONEY), SUM(if(t.MONEY is NULL, 0, t.MONEY))
+FROM USER u LEFT JOIN (
+SELECT *
+FROM TRANSACTIONS
+WHERE date_format(DATE_TIME, "20%y-%m-%d") BETWEEN "2020-09-01" and "2020-09-07") t on u.USER_ID = t.USER_ID
 GROUP BY u.USER_ID
 ORDER BY u.USER_ID
