@@ -23,7 +23,6 @@ def permutation(n):
         permutation(n+1)
         ans.pop()
 
-
 permutation(0)
 
 
