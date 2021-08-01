@@ -24,7 +24,6 @@ def solution(food_times, k):
     return result[(k-sum_v) % length][1]
     
 
-
 if __name__ == '__main__':
     print(solution([3, 1, 2], 5))
     print(solution([3, 1, 0, 0, 2, 1, 1], 7))

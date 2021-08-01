@@ -10,7 +10,7 @@ def solution(n, arr1, arr2):
             else:
                 temp += '#'
         ans.append(temp)
-    
+
     return ans
 
 

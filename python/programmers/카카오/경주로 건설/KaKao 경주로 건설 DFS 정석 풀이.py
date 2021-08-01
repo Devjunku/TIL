@@ -92,7 +92,7 @@ def dfs(board,n,visited,y,x,lastDir,res,dp) :
             확인해야합니다. 만약에 이 3개 중 하나라도 만족되지 않는다면
             dfs를 돌 수 없겠죠 그리고 이 3개의 조건으로 인해 무한재귀에 빠지지 않게 되죠
         '''
-        if 0 <= ny < n and 0 <= nx < n and board[ny][nx] == 0 and not visited[ny][nx] :
+        if 0 <= ny < n and 0 <= nx < n and board[ny][nx] == 0 and not visited[ny][nx]:
             '''
             6. 조건에 맞다면 일단 방문처리합니다.
             '''
