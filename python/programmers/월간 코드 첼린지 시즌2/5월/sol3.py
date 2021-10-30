@@ -1,41 +1,23 @@
-from collections import deque
-
-def is_x(string):
-    string = list(string)
-    for i in range(len(string)-2):
-        if ''.join(string[i:i+3]) == '110':
-            string.pop(i)
-            string.pop(i)
-            string.pop(i)
-    
-    return string
-        
-
-
 def solution(s):
-
-    ans = []
-    for ss in s:
-        
-        ele = []
-        e_string = is_x(ss)
-        q = deque([ss])
-
-        while q:
-            sss = q.popleft()
-            e_string = is_x(sss)
-            for i in range(len(sss)):
-                a = ''.join(e_string[:i]) + '110' + ''.join(e_string[i:])
-                if a in ele:
-                    continue
-                else:
-                    ele.append(a)
-                    q.append(a.split())
-        
-        ans.append(sorted(ele)[0])
-
-    return ans
-
+    answer = []
+    for e in s:
+        cnt = 0
+        string = list(e)
+        stack = []
+        for zo in string:
+            stack.append(zo) 
+            if len(stack) >= 3:
+                if "".join(stack[-3:]) == "110":
+                    cnt += 1
+                    del stack[-3:]
+        idx = -1 # 0이 있는 지표
+        for i in range(len(stack)):
+            if stack[i] == "0":
+                idx = i
+        if idx < 0: ans = "110"*cnt + "".join(stack)
+        else: ans = "".join(stack[:idx+1]) + (cnt * "110") + "".join(stack[idx+1:])
+        answer.append(ans)
+    return answer
 
 if '__main__' == __name__:
     print(solution(["1110","100111100","0111111010"]))

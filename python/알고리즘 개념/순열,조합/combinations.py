@@ -5,8 +5,8 @@ def combinations(arr, m):
         return [[]]
     
     for idx in range(len(arr)):
-        element = arr[i]
-        arr_ele = arr[i+1:]
+        element = arr[idx]
+        arr_ele = arr[idx+1:]
         for j in combinations(arr_ele, m-1):
             result.append([element]+j)
             
