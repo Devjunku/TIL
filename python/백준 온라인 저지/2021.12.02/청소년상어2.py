@@ -12,9 +12,7 @@ for i in range(4):
         fish.append([data[2*j], data[2*j+1]-1])
     board[i] = fish
 
-
 max_score = 0
-
 
 def dfs(sx, sy, score, board):
     global max_score

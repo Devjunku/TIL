@@ -1,30 +1,54 @@
 class C {
-  int left, right;
+    int left, right;
 
-  public C(int left, int right) {
-      this.left = left;
-      this.right = right;
-  }
 
-  public void sum() {
-      System.out.println(this.left + this.right);
-  }
+    public void setOprands(int left, int right) {
+        this.left = left;
+        this.right = right;
+    }
 
-  public void avg() {
-      System.out.println((this.left + this.right)/2);
-  }
+    public void sum() {
+        System.out.println(this.left + this.right);
+    }
 
+    public void avg() {
+        System.out.println((this.left + this.right) / 2);
+    }
+}
+
+class substractableCalculator extends C {
+    public void substract() {
+        System.out.println(this.left - this.right);
+    }
+}
+
+class MultiplicationableCalculator extends C {
+    public void multiplication() {
+        System.out.println(this.left * this.right);
+    }
+}
+
+class DivisionableCalculator extends MultiplicationableCalculator {
+    public void division() {
+        System.out.println(this.left / this.right);
+    }
 }
 
 public class ScopeDemo {
     public static void main(String[] args) {
-        C c1 = new C(10, 20);
-        c1.sum();
-        c1.avg();
+        substractableCalculator s = new substractableCalculator();
+        s.setOprands(10, 20);
+        s.sum();
+        s.avg();
+        s.substract();
 
-        C c2 = new C(20, 40);
-        c2.sum();
-        c2.avg();
+        MultiplicationableCalculator m = new MultiplicationableCalculator();
+        m.setOprands(10, 20);
+        m.multiplication();
 
+        DivisionableCalculator d = new DivisionableCalculator();
+        d.setOprands(10, 20);
+        d.multiplication();
+        d.division();
     }
 }
