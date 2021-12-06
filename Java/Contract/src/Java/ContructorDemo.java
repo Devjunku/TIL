@@ -11,8 +11,8 @@ class C {
         System.out.println(this.left + this.right);
     }
 
-    public void avg() {
-        System.out.println((this.left + this.right) / 2);
+    public int avg() {
+        return ((this.left + this.right) / 2);
     }
 }
 
@@ -24,6 +24,12 @@ class SubstractableCalculator extends C {
     public void substract() {
         System.out.println(this.left - this.right);
     }
+
+    public int avg() {
+        return super.avg();
+    }
+
+
 }
 
 public class ContructorDemo {
