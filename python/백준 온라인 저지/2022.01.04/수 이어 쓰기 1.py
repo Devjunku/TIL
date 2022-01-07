@@ -12,10 +12,3 @@ while True:
     i += 1
 
 print(int(answer))
-
-
-
-
-
-
-
