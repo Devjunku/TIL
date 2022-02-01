@@ -1,11 +1,11 @@
 //fun main(args: Array<String>) {
-//    println(solution("one4seveneight"))
-//    println(solution("23four5six7"))
-//    println(solution("2three45sixseven"))
-//    println(solution("123"))
+//    println(solution1("one4seveneight"))
+//    println(solution1("23four5six7"))
+//    println(solution1("2three45sixseven"))
+//    println(solution1("123"))
 //}
 
-//pravate fun solution(s: String): Int {
+//pravate fun solution1(s: String): Int {
 //    val dicNumber: HashMap<String, String>
 //    dicNumber = hashMapOf(
 //        "one" to "1",

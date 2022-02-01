@@ -17,7 +17,7 @@ class Solution {
         }
         return answer
     }
-    fun bfs(arr:Array<MutableList<Int>>, startNode:MutableList<Int>, s:Int, e:Int):Int{
+    private fun bfs(arr:Array<MutableList<Int>>, startNode:MutableList<Int>, s:Int, e:Int):Int{
         val hs = HashSet<Int>()
         val q:Queue<Int> = LinkedList<Int>()
         hs.add(s)
