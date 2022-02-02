@@ -12,8 +12,7 @@ fun main() = with(Scanner(System.`in`)) {
     var cnt = 0
     while (right < n) {
         when {
-            intArr[left] + 5 > intArr[right] ->
-            {
+            intArr[left] + 5 > intArr[right] -> {
                 right ++
                 cnt ++
             }
@@ -22,6 +21,7 @@ fun main() = with(Scanner(System.`in`)) {
                 right ++
             }
         }
+
     }
     when {
         cnt > 5 -> println(0)
