@@ -1,46 +1,39 @@
+from collections import deque
 import sys
 
-def md(nx, ny, dx, dy): 
-    return abs(nx-dx) + abs(ny-dy)
-
-
-def is_go_to_festival(com_store, sh_x, sh_y, px, py):
-
-    if md(sh_x, sh_y, px, py) <= 2000:
-        return True
-
-    while com_store:
-        if md(sh_x, sh_y, px, py) > 2000:
-            nx, ny, ncost = com_store.pop()
-            if md(sh_x, sh_y, nx, ny) <= 2000:
-                sh_x, sh_y = nx, ny
-            else:
-                return False
-        else:
-            return True
-
-    if md(sh_x, sh_y, px, py) <= 2000:
-        return True
-    else:
-        return False
-
 input = sys.stdin.readline
+
+
+def bfs(x, y):
+    q, c = deque(), []
+
+    q.append([x, y, 20])
+    c.append([x, y, 20])
+    
+    while q:
+        x, y, beer = q.popleft()
+        if x == x1 and y == y1:
+            print("happy")
+            return
+        
+        for nx, ny in d:
+            if [nx, ny, 20] not in c:
+                if beer * 50 >= abs(x-nx) + abs(y-ny):
+                    q.append([nx, ny, 20])
+                    c.append([nx, ny, 20])
+    print("sad")
+    return
+
 
 T = int(input())
 
 for _ in range(T):
     n = int(input())
-    sh_x, sh_y = map(int, input().split())
-
-    com_store = []
+    x0, y0 = map(int, input().split())
+    d = []
     for _ in range(n):
-        cx, cy = map(int, input().split())
-        com_store.append((cx, cy))
-    
-
-    px, py = map(int, input().split())
-
-    if is_go_to_festival(com_store, sh_x, sh_y, px, py):
-        print("happy")
-    else:
-        print("sad")
+        x, y = map(int, input().split())
+        d.append([x, y])
+    x1, y1 = map(int, input().split())        
+    d.append([x1, y1])
+    bfs(x0, y0)

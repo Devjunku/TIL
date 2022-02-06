@@ -53,7 +53,7 @@ for i in range(r):
         arr[i][j] = "O"
 answer.append(deepcopy(arr))
 
-# pprint(answer)
+pprint(answer)
 
-for ele in answer[n % 5]:
-    print(*ele)
+# for ele in answer[n % 5]:
+#     print(*ele)
