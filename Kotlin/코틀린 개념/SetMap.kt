@@ -1,4 +1,4 @@
-package com.example.kotlinPractice
+package com.example.kotlinPractice.`코틀린 개념`
 
 // collection class 중 map과 set임
 

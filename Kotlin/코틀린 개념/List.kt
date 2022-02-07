@@ -1,4 +1,4 @@
-package com.example.kotlinPractice
+package com.example.kotlinPractice.`코틀린 개념`
 
 fun main() {
     var a = listOf("사과", "딸기", "배")

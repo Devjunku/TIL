@@ -1,4 +1,4 @@
-package com.example.kotlinPractice
+package com.example.kotlinPractice.`코틀린 개념`
 
 fun main() {
     // 그 동안 변수의 기초적인 이야기를 진행했음

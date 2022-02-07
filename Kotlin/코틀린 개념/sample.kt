@@ -1,4 +1,4 @@
-package com.example.app
+package com.example.kotlinPractice.`코틀린 개념`
 
 // Kotlin은 Java와 다르게 class 사용시 class를 open하지 않으면, 사용할 수 없음.
 // 따라서 open을 따로 해주어야 상속이 가능하다는 것을 명심하자.

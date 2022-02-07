@@ -1,4 +1,4 @@
-package com.example.kotlinPractice
+package com.example.kotlinPractice.`코틀린 개념`
 
 fun main() {
 
@@ -18,5 +18,5 @@ enum class State(val message: String) {
     EAT("음식을 먹습니다."),
     SLEEP("잠을 잡니다.");
 
-    fun isSleeping() = this == State.SLEEP
+    fun isSleeping() = this == SLEEP
 }

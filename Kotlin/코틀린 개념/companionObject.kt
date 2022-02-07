@@ -1,4 +1,4 @@
-package com.example.kotlinPractice
+package com.example.kotlinPractice.`코틀린 개념`
 
 class Book private constructor(val id: Int, val name: String) {
 
@@ -22,6 +22,6 @@ interface IdProvider {
 
 fun main() {
     val book = Book.create()
-    val bookId = Book.BookFactory.getId()
+    val bookId = Book.getId()
     println("${book.id} ${book.name}")
 }
