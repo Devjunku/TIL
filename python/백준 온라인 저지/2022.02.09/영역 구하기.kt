@@ -21,7 +21,7 @@ fun main(args: Array<String>) = with(BufferedReader(InputStreamReader(System.`in
             }
         }
     }
-
+    
     var answer: MutableList<Int> = mutableListOf()
     for (i in 0 until n) {
         for (j in 0 until m) {
