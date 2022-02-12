@@ -33,4 +33,12 @@ fun main(args: Array<String>) = with(BufferedReader(InputStreamReader(System.`in
         1.toLong() -> println("$left")
         else -> println("${left - 1}")
     }
+
+    if (left == 1.toLong()) {
+        println("$left")
+    } else {
+        println("${left - 1}")
+    }
+
+
 }
