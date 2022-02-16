@@ -1,46 +1,38 @@
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.util.*
+import kotlin.math.*
 
 fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
-    val t = readLine().toInt()
-    val intMax: Long = 2100000000
-    val dpMin = LongArray(101) { intMax }
-    val count = arrayOf(6, 2, 5, 5, 4, 5, 6, 3, 7, 6)
-    var queue: Queue<matchQueue> = LinkedList()
+    val n = readLine().toInt()
+    val minDP = LongArray(101) {Long.MAX_VALUE}
+    val maxDP = Array<String>(101) { "" }
+    val arr = IntArray(8)
+    var sb = StringBuilder()
 
-    for (i in 1 until 10) queue.add(matchQueue(i.toLong(), count[i]))
+    arr[2] = 1
+    arr[3] =7
+    arr[4] =4
+    arr[5] =2
+    arr[6] =0
+    arr[7] =8
+    minDP[2]=1
+    minDP[3]=7
+    minDP[4]=4
+    minDP[5]=2
+    minDP[6]=6
+    minDP[7]=8
+    minDP[8]=10
 
-    while (queue.isNotEmpty()) {
-        var cnt = queue.peek().cnt
-        var make = queue.peek().make
-        queue.poll()
-        dpMin[cnt] = minOf(dpMin[cnt], make)
+    for (i in 9..100) for (j in 2..7) minDP[i] = min(minDP[i], minDP[i-j]*10 + arr[j])
 
-        if (dpMin[cnt] != make) continue
+    maxDP[2] = "1"
+    maxDP[3] = "7"
 
-        for (i in 0 until 10) {
-            if (cnt + count[i] <= 100) {
-                queue.add(matchQueue((make.toString() + i.toString()).toLong(), cnt + count[i]))
-            }
-        }
+    for (i in 4..100) maxDP[i] = maxDP[i-2]+"1"
+    for (i in 0 until n) {
+        var num = readLine().toInt()
+        sb.append("${minDP[num]} ${maxDP[num]}\n")
     }
-    for (testCase in 0 until t) {
-        var p = readLine().toInt()
-        var maxString: String
-        var one = ""
-        when {
-            p % 2 == 1 -> {
-                for (i in 0 until (p - 3) / 2) one = "${one}1"
-                maxString = "7$one"
-            }
-            else -> {
-                for (i in 0 until (p) / 2) one = "${one}1"
-                maxString = one
-            }
-        }
-        println("${dpMin[p]} $maxString\n")
-    }
+    println(sb)
+    close()
 }
-
-data class matchQueue(val make: Long, val cnt: Int)
