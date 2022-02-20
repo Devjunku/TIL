@@ -1,5 +1,4 @@
 import sys
-from pprint import pprint
 input = sys.stdin.readline
 
 n = int(input())
