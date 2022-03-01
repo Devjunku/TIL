@@ -5,21 +5,19 @@ import java.io.InputStreamReader
 
 fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
     val (n, m) = readLine().split(" ").map { it.toInt() }
-    val arrLong = LongArray(n)
-    for (i in 0 until n) {
-        arrLong[i] = readLine().toLong()
+    val Immigration = Array(n) { r ->
+        readLine().toLong()
     }
 
-    var left: Long = 1
-    var right = arrLong.maxOrNull()!! * m
+    var left: Long = 0
+    var right = (Immigration.maxOrNull()!! * m)
 
-    while (left < right) {
+    while (left <right) {
         val mid = (left + right) / 2
-
         var total: Long = 0
 
-        for (time in arrLong) {
-            total += (mid/time)
+        for (time in Immigration) {
+            total += (mid / time)
         }
 
         if (total >= m) {
