@@ -1,4 +1,6 @@
-package `다시 풀어본 문제`
+package `다시 풀어본 문제`.완전이진트리9934
+
+
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
