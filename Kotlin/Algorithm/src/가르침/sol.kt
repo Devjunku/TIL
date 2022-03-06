@@ -71,7 +71,6 @@ private fun canReadWord(n: Int, charList: MutableList<Char>, idx: Int, stringArr
             alphabetTable[anotherAlphaKey[i]] = false
         }
     }
-
 }
 
 private fun readWord(stringArray: Array<String>): Int {
