@@ -10,14 +10,7 @@ fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
 
     val (n, m) = readLine().split(" ").map { it.toInt() }
     val room = Array(m) {
-        IntArray(n)
-    }
-
-    for (i in 0 until m) {
-        val str = readLine().trim()
-        for (j in 0 until n) {
-            room[i][j] = str[j].digitToInt()
-        }
+        readLine().map { it.digitToInt() }
     }
 
     val visited = Array(m) {

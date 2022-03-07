@@ -1,6 +1,6 @@
 import java.util.Queue
 import java.util.LinkedList
-class Solution {
+private class Solution {
     fun solution(n: Int, wires: Array<IntArray>): Int {
         var answer = n
         val arr = Array<MutableList<Int>>(n){mutableListOf()}
