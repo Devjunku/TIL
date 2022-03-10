@@ -1,4 +1,4 @@
-package 가르침
+package `원석이와 후니와 함께하는 알고리즘`.`3월3일`.가르침
 
 import java.io.BufferedReader
 import java.io.InputStreamReader

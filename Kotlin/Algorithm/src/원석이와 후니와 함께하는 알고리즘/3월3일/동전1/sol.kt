@@ -1,11 +1,11 @@
-package 동전1
+package `원석이와 후니와 함께하는 알고리즘`.`3월3일`.동전1
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
 fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
     val (n, k) = readLine().split(" ").map { it.toInt() }
-    var coinSet = Array(n) {
+    val coinSet = Array(n) {
         readLine().toInt()
     }
 

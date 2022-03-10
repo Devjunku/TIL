@@ -1,4 +1,4 @@
-package `다시 풀어본 문제`
+package `다시 풀어본 문제`.최대힙
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
