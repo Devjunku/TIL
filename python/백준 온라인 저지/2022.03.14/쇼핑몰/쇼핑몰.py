@@ -1,15 +1,28 @@
-from collections import deque
-from heapq import heappop, heappush
 import sys
+from heapq import heappop, heappush
 input = sys.stdin.readline
 
 n, k = map(int, input().split())
-client = deque([list(map(int, input().split())) for _ in range(n)])
-visited = [False for _ in range(n)]
 
-goto_outdoor = []
+idx = []
+weight = []
 
+for _ in range(n):
+    i, w = map(int, input().split())
+    idx.append(i)
+    weight.append(w)
+
+counter = []
 for i in range(k):
-    visited[i] = True
-    client_ele = client.popleft()
-    heappush(goto_outdoor, (client_ele[1], i, client_ele[0]))
+    heappush(counter, (0, i))
+
+time_need = [0] * k
+
+finish = []
+for i in range(n):
+    t, x = heappop(counter)
+    time_need[x] += weight[i]
+    heappush(counter, (time_need[x], x))
+    finish.append((time_need[x], -x, i))
+
+print(sum(idx[t[2]] * (i+1) for i, t in enumerate(sorted(finish))))

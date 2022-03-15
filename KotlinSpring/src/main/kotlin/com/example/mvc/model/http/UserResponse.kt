@@ -11,9 +11,7 @@ data class UserResponse(
     @JsonProperty("user")
     var userRequest: MutableList<UserRequest>? = null
 
-) {
-
-}
+)
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
 data class Result(
