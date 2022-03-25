@@ -39,7 +39,7 @@ def dfs(sx, sy, score, board):
 
         for i in range(8):
             nd = (fd+i) % 8
-            nx, ny = fx + dx[nd], fy+dy[nd]
+            nx, ny = fx + dx[nd], fy + dy[nd]
 
             if not (0 <= nx < 4 and 0 <= ny < 4) or (nx == sx and ny == sy):
                 continue
