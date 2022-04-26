@@ -50,16 +50,16 @@ for i in range(r):
             warm_machine.append((i, j, data[j]-1))
 
 w = int(input())
-wall = []
+wall = set()
 for _ in range(w):
     x, y, t = map(int, input().split())
     x -= 1
     y -= 1
     if t == 0:
-        wall.append((x, y, x-1, y))
-        wall.append((x-1, y, x, y))
+        wall.add((x, y, x-1, y))
+        wall.add((x-1, y, x, y))
     else:
-        wall.append((x, y, x, y+1))
+        wall.add((x, y, x, y+1))
         wall.append((x, y+1, x, y))
 
 def confirm_k_up():

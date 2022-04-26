@@ -153,6 +153,7 @@ while confirm_k_up():
             if v > 1:
                 spread_warm(d, v-1)
             v -= 1
+            
     # 온도가 높은 곳에서 낮은 곳으로 전달됨
     deliver_adj_c()        
 
@@ -161,9 +162,7 @@ while confirm_k_up():
         if arr[x][y] >= 1:
             arr[x][y] -= 1
     
-    # pprint(arr)
     cho_cnt += 1
-    # break
 
 if cho_cnt > 100:
     print(101)
