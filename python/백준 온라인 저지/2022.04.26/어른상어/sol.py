@@ -1,82 +1,103 @@
-from pprint import pprint
+from copy import deepcopy
 import sys
 input = sys.stdin.readline
-
 n, m, k = map(int, input().split())
-bowl = []
-smell = [[[] for _ in range(n)] for _ in range(n)]
-for i in range(n):
-    data = list(map(int,input().split()))
-    for j in range(len(data)):
-        if data[j] != 0:
-            smell[i][j].append((data[j], 0))
-    bowl.append(data)
 
-dx = [-1, 1, 0, 0]
-dy = [0, 0, -1, 1]
+dx = [0, -1, 1, 0, 0]
+dy = [0, 0, 0, -1, 1]
 
-shark_d = [0] + list(map(int, input().split()))
-
-shark_d_dic = {
-    i: {j: [] for j in range(1, k+1)} for i in range(1, k+1)
-}
-
-for i in range(1, k+1):
-    for j in range(1, k+1):
-        shark_d_dic[i][j] = tuple(map(int, input().split()))
-
-
-def get_shark_num():
-    num = 0
+bowl = [list(map(int, input().split())) for _ in range(n)]
+smell = [[[0, 0] for _ in range(n)] for _ in range(n)]
+# TODO 초기 냄새 기록
+def memo_smell():
     for i in range(n):
         for j in range(n):
             if bowl[i][j] != 0:
-                num += 1
-            if num > 1:
+                smell[i][j][0] = k
+                smell[i][j][1] = bowl[i][j]
+
+def mius_smell():
+    for i in range(n):
+        for j in range(n):
+            if smell[i][j][0] > 0:
+                smell[i][j][0] -= 1
+
+            if smell[i][j][0] == 0:
+                smell[i][j][1] = 0
+
+shark_d = [0] + list(map(int, input().split()))
+
+p_shark_d = {
+    i:{
+        j: [] for j in range(1, 5)
+    } for i in range(1, m+1)
+}
+
+for i in range(1, m+1):
+    for j in range(1, 5):
+        p_shark_d[i][j] = list(map(int, input().split()))
+
+def comfirm():
+    for i in range(n):
+        for j in range(n):
+            if bowl[i][j] > 1:
                 return True
-    
+
     return False
 
 t = 0
-while get_shark_num():
+memo_smell()
+while comfirm():
 
-    if t > 1000:
+    if t > 999:
         print(-1)
         exit()
 
-    new_bowl = [[0 for _ in range(n)] for _ in range(n)]
+    # TODO 상어 이동!
+    new_bowl = [[401 for _ in range(n)] for _ in range(n)]
 
-    # TODO 상어 이동
     for i in range(n):
         for j in range(n):
-            # TODO FIRST 인접한 칸 중에서 아무 냄새가 없는 칸으로 감 우선순위대로 움직임
-            if bowl[i][j]:
-                shark_num, shark_d_num = bowl[i][j], shark_d[bowl[i][j]]
+            if bowl[i][j] > 0:
+                shark_number = bowl[i][j]
+                shark_direction = shark_d[shark_number]
                 x, y = i, j
-                find_blank = False
-                for d_i in shark_d_dic[shark_num[shark_d_num]]:
-                    nx, ny = x + dx[d_i-1], y  + dy[d_i-1]
+                flag = True
+                # TODO 빈칸을 먼저 찾기
+                for d in p_shark_d[shark_number][shark_direction]:
+                    nx, ny = x + dx[d], y + dy[d]
                     if not (0 <= nx < n and 0 <= ny < n): continue
-                    
-                    if bowl[nx][ny] == 0:
-                        find_blank = True
-                        new_bowl[nx][ny] = shark_num
-                        shark_d[bowl[i][j]] = d_i
+                    if smell[nx][ny][0]: continue
+                    if bowl[nx][ny] == 0 and (shark_number < new_bowl[nx][ny]):
+                        # print(shark_number)
+                        new_bowl[nx][ny] = shark_number
+                        shark_d[shark_number] = d
+                        flag = False
                         break
-                
-                if not find_blank:
-                    for d_i in shark_d_dic[shark_num[shark_d_num]]:
-                        nx, ny = x + dx[d_i-1], y  + dy[d_i-1]
+                    elif bowl[nx][ny] == 0 and (shark_number > new_bowl[nx][ny]):
+                        flag = False
+                        break
+                if flag:
+                    for d in p_shark_d[shark_number][shark_direction]:
+                        nx, ny = x + dx[d], y + dy[d]
                         if not (0 <= nx < n and 0 <= ny < n): continue
-                        if smell[nx][ny]:
-                            if smell[nx][ny][0] == shark_num:
-                                find_blank = True
-                                new_bowl[nx][ny] = shark_num
-                                shark_d[bowl[i][j]] = d_i
-                                break
-                    
-            # 그런 칸이 없으면 자신의 냄새가 있는 칸으로 감
+                        # TODO 자기 냄새인것 찾기
+                        if smell[nx][ny][1] == bowl[i][j]:
+                            new_bowl[nx][ny] = bowl[i][j]
+                            shark_d[shark_number] = d
+                            break
+    
+    for i in range(n):
+        for j in range(n):
+            if new_bowl[i][j] == 401:
+                new_bowl[i][j] = 0
+    
+    bowl = deepcopy(new_bowl)
+
+    # TODO 냄새 1씩 빼기
+    mius_smell()
+    # TODO 냄새기록하기
+    memo_smell()
     t += 1
 
-    pass
-
+print(t)
