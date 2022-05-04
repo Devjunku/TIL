@@ -29,6 +29,9 @@ def solution(n, k, cmd):
             now_idx = down[now_idx] if down[now_idx] != -1 else up[now_idx]
 
         elif order == "D":
+            d = stack.pop()
+            if up[d] != -1:
+                down[up[d]]
             pass
         elif order == "U":
             number = int(c.split()[1])
