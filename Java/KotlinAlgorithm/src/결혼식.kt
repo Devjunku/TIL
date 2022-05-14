@@ -4,7 +4,8 @@ import java.util.*
 import kotlin.properties.Delegates
 
 
-private lateinit var nodeNum: Int
+
+private var nodeNum: Int = 0
 private var arrNum by Delegates.notNull<Int>()
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
