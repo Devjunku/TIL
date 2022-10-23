@@ -8,7 +8,7 @@ fun main()
 
     println(nameList.filter{ it.startsWith("김") })
     println(nameList.map { "이름: " + it })
-    println(nameList.any{ it == "김지연" })
+    println(nameList.any { it == "김지연" })
     println(nameList.all { it.length == 3 })
     println(nameList.none { it.startsWith("이") })
     println(nameList.first { it.startsWith("김") })

@@ -21,8 +21,3 @@ fun main() {
     }
 
 }
-
-private fun bfs(): Array<Int> {
-    val q: Queue<Int> = LinkedList()
-    val visited = IntArray(nodeNum) {-1}
-}

@@ -32,3 +32,7 @@ class Outer {
         }
     }
 }
+
+class Sunkyu {
+    var study = "study"
+}
