@@ -1,5 +1,6 @@
 package com.kotlinjava.exception
 
+import com.kotlinjava.keyword.JavaKeyword
 import java.io.IOException
 
 class KotlinThrow {
@@ -17,4 +18,8 @@ fun main() {
 
     val kotlinThrow = KotlinThrow()
     kotlinThrow.throwIOException()
+
+    val keyword = JavaKeyword()
+    keyword.`in`
+    keyword.`is`
 }
