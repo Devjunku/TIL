@@ -16,6 +16,9 @@ public class JavaThrow {
      * KotlinThrow kotlinThrow  = new KotlinThrow();
      * kotlinThrow.throwIOException();
      *
+     * kotlin에서의 성능상 이슈가 아닌, throw Exception을 어떻게 작성하는가?에 관한 문제임.
+     * Code Convention에 따라 어떻게 쓸지 판단한 후
+     * @Throws(IOException::class)를 사용하면 됨.
      *
      */
 
