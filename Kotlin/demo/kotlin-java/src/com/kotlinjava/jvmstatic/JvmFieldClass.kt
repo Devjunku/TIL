@@ -5,7 +5,7 @@ class JvmFieldClass {
     companion object {
         const val CODE = 1234
         @JvmField
-        val id = 1234
+        var id = 1234
     }
 
 }
